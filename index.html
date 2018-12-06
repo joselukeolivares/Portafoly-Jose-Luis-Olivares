@@ -8,6 +8,7 @@
       <link rel="stylesheet" href="css/master.css">
       <!--<link rel="stylesheet" href="css/media.css" media="screen and (max-width:768px)">-->
       <link rel="stylesheet" href="css/estilos.css">
+
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <style media="screen">
         header{
@@ -16,7 +17,7 @@
       </style>
   </head>
   <body>
-    <i class="icon-facebook"></i>
+<i id="burger" class="icon-menu burger-menu"></i>
    <header class="header">
      <div class="container">
        <figure class="logo">
@@ -130,10 +131,11 @@
           <button>Enviar</button>
         </form>
         <div class="social">
-          <a href="https://www.twitter.com" class="social-link twitter"></a>
-          <a href="https://www.facebook.com" class="social-link facebook" ></a>
-          <a href="https://joselukeolivares.github.io/scientist_gamers" class="social-link github"></a>
-          <a href="https://www.instagram.com" class="social-link instagram"></a>
+          <a href="https://www.twitter.com" class="social-link twitter"><i class=" icon-twitter"></i></a>
+          <a href="https://www.facebook.com" class="social-link facebook" ><i class=" icon-facebook"></i></a>
+          <a href="https://github.com/joselukeolivares/gscientist" class="social-link github"><i class=" icon-github"></i></a>
+          <a href="https://www.instagram.com" class="social-link"><i class=" icon-instagram"></i></a>
+
         </div>
       </div>
 
@@ -148,6 +150,34 @@
         </div>
       </div>
     </footer>
+    <script type="text/javascript">
 
+     const menu=document.querySelector(".menu")
+     const burger=document.querySelector("#burger");
+     const ipad=window.matchMedia('screen and (max-width:767px)')
+     ipad.addListener(validation);
+
+
+     function validation(event){
+       console.log(event);
+       //debugger;
+       if(event.matches){
+         burger.addEventListener("click",hideShow);
+         }else{
+         burger.removeEventListener("click",hideShow);
+         }
+     }
+
+
+
+     function hideShow(){
+       if(menu.classList.contains("is-active")){
+         menu.classList.remove("is-active");
+       }else{
+         menu.classList.add("is-active");
+       }
+     }
+
+    </script>
   </body>
 </html>
